@@ -5,7 +5,8 @@ const { StatusCodes } = require("http-status-codes")
 const getAllArticles = async (req, res) => {
   const { search } = req.query
 
-  let queryString = "SELECT * FROM articles"
+  let queryString = "SELECT * FROM articles ORDER BY created_at desc"
+
   let parameters = []
 
   if (search) {

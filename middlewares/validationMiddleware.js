@@ -11,7 +11,6 @@ const withValidationErrors = (validateValues) => {
     validateValues,
     (req, _res, next) => {
       const errors = validationResult(req)
-
       if (!errors.isEmpty()) {
         const errorMessages = errors.array().map((error) => error.msg)
 
@@ -87,13 +86,6 @@ const validateIdParam = withValidationErrors(
 
     if (!item) {
       throw new Error(`Pas d'article avec l'id ${id}`)
-    }
-
-    const isOwner = req.user.userId === item.user_id
-    const isAdmin = req.user.role === "admin"
-
-    if (!isOwner && !isAdmin) {
-      throw new Error("Accès non autorisé")
     }
   })
 )

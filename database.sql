@@ -23,9 +23,9 @@ created_at timestamp with time zone not null default now()
 );
 
 CREATE TABLE favoris(
-  favori_id SERIAL PRIMARY KEY,
   article_id INT,
   user_id INT,
   FOREIGN KEY (article_id)  REFERENCES  articles(article_id),
-  FOREIGN KEY (user_id)  REFERENCES  users(user_id)
+  FOREIGN KEY (user_id)  REFERENCES  users(user_id),
+  PRIMARY KEY (article_id,user_id)
 );
