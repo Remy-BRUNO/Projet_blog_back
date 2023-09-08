@@ -5,6 +5,7 @@ const app = express()
 const helmet = require("helmet")
 const fileUpload = require("express-fileupload")
 const cloudinary = require("cloudinary").v2
+const cors = require("cors")
 
 //config pour l'upload de fichiers
 cloudinary.config({
@@ -17,6 +18,7 @@ cloudinary.config({
 const notFound = require("./middlewares/notFoundMiddleware.js")
 const errorHandler = require("./middlewares/errorHandlerMiddleware.js")
 
+app.use(cors())
 // routers
 const authRouter = require("./routes/authRoutes.js")
 const articleRouter = require("./routes/articleRoutes.js")
