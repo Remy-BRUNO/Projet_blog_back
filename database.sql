@@ -23,9 +23,9 @@ created_at timestamp with time zone not null default now()
 );
 
 CREATE TABLE favoris(
-  article_id INT,
-  user_id INT,
-  FOREIGN KEY (article_id)  REFERENCES  articles(article_id),
-  FOREIGN KEY (user_id)  REFERENCES  users(user_id),
+  article_id INT ,
+  user_id INT ,
+  FOREIGN KEY (article_id)  REFERENCES  articles(article_id) ON DELETE CASCADE,
+  FOREIGN KEY (user_id)  REFERENCES  users(user_id) ON DELETE CASCADE,
   PRIMARY KEY (article_id,user_id)
 );
