@@ -6,7 +6,7 @@ const getAllArticles = async (req, res) => {
   const { search } = req.query
 
   let queryString = "SELECT * FROM articles"
-  let orderred = "ORDER BY created_at desc"
+  let orderred = " ORDER BY created_at desc"
   let parameters = []
 
   if (search) {
