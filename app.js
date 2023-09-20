@@ -18,12 +18,13 @@ cloudinary.config({
 const notFound = require("./middlewares/notFoundMiddleware.js")
 const errorHandler = require("./middlewares/errorHandlerMiddleware.js")
 
-app.use(cors())
 // routers
 const authRouter = require("./routes/authRoutes.js")
 const articleRouter = require("./routes/articleRoutes.js")
 const userRouter = require("./routes/userRoutes.js")
 const favorisRouter = require("./routes/favorisRoutes.js")
+
+app.use(cors())
 app.use(helmet())
 app.use(express.json())
 

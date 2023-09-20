@@ -18,7 +18,7 @@ const uploadImage = async (req, res) => {
       folder: "file-upload",
     }
   )
-
+  // supprimer les fichier temp
   fs.unlinkSync(req.files.image.tempFilePath)
 
   res.status(StatusCodes.OK).json({ image: { src: result.secure_url } })
